@@ -1,0 +1,118 @@
+1.1) A
+1.2) B
+1.3) C
+1.4) C
+1.5) C
+1.6) A
+1.7) C
+/////////
+Question 2
+
+2.1)
+    This function determines weather it is a palindrome or not
+    Using normal loops over recursion is more memory efficient
+
+2.2) 
+    A(m, n){
+        if(m == 0)
+            return n+1;
+        if(n == 0)
+            return A(m-1, 1);
+        return A(m -1, A(m,n-1));
+    }
+
+-------Question 3
+
+3.1)
+    Matrix(){
+        matrix = new int[3];
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                matrix[i][j] = j + i;
+            }
+        }
+    }
+
+3.2)
+    T findLargest(){
+        T largest = matrix[0][0];
+        for(int i = 0 ; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(matrix[i][j] > largest)
+                    largest = matrix[i][j];
+            }
+        }
+    }
+
+    ~Matrix(){
+        for(int i = 0 ; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                matrix[i][j] = null;
+            }
+        }
+        delete matrix;
+    }
+
+------Question 4
+    class Node{
+        public:
+            Node* next;
+            T data;
+            Node(T d, Node* n){
+                data = d; next = n;
+            }
+    };
+    class Node{
+        public:
+            Node* left, right;
+            T data;
+            Node(T d, Node* l, Node* r){
+                data = d; left = l, right = r;
+            }
+    };
+
+
+--------Question 5
+    
+class Beer(){
+    public:
+        Beer(string t, string b){
+            type = t; brand = b;
+        }
+        virtual string getType(){return type;}
+        virtual string getBrand(){return brand};
+    private:
+        string type, brand;
+};
+
+Yes, as you would want to destruct the dervide classes and maybe not the 
+base classes.
+
+class Larger : public Beer{
+    public:
+        Larger(string b):Beer("larger", b){
+            brand = b;
+        }
+    private:
+        string brand;
+};
+
+Template Method
+??
+
+-------Question 7
+
+Beer Production Station
+Yes, caseOfBeer
+
+setupBrewingStation
+the private methods
+
+////Question 8
+
+setupBrewingStation, storeCase
+
+
+
+
+
