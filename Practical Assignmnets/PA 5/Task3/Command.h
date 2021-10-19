@@ -14,9 +14,10 @@ private:
 public:
     Command();
     Command(RemoteControlVehicle *v);
-    virtual ~Command();
+    ~Command();
     virtual void execute() = 0;
     virtual void undo() = 0;
     RemoteControlVehicle *getReceiver();
 };
+
 #endif
