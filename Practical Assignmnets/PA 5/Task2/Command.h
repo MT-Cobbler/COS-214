@@ -1,5 +1,5 @@
-#ifndef Command_H
-#define Command_H
+#ifndef COMMAND_H
+#define COMMAND_H
 
 #include "RemoteControlVehicle.h"
 

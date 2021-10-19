@@ -1,5 +1,5 @@
-#ifndef RemoteControlPlane_H
-#define RemoteControlPlane_H
+#ifndef REMOTECONTROLPLANE_H
+#define REMOTECONTROLPLANE_H
 #include <iostream>
 #include "RemoteControlVehicle.h"
 using namespace std;
