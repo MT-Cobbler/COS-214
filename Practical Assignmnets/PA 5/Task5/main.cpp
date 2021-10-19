@@ -2,15 +2,15 @@
 #include "RemoteControlCar.h"
 #include "RemoteControlPlane.h"
 #include "RemoteControlRocket.h"
-
-#include "RocketAdapter.h"
-#include "Button.h"
-#include "Command.h"
-
+// commands
 #include "TurnOn.h"
 #include "TurnOff.h"
 #include "MoveForward.h"
 #include "MoveBackward.h"
+// adpater
+#include "RocketAdapter.h"
+#include "Button.h"
+#include "Command.h"
 
 #include <iostream>
 
@@ -19,87 +19,109 @@ using namespace std;
 int main()
 {
 
-    RemoteControlVehicle *car = new RemoteControlCar();
-    RemoteControlVehicle *plane = new RemoteControlPlane();
-    RemoteControlRocket *rocket = new RemoteControlRocket();
+    RemoteControlVehicle* vehicle;
+    Command *c; //commands
+    Button *b;  // buttons
 
-    Command *carOn = new TurnOn();
-    carOn->setReceiver(car);
-    Button *carOnSwitch = new Button(carOn);
+    /* -------- Car Commands and Buttons ---------- */
+    vehicle = new RemoteControlCar();
 
-    Command *carOff = new TurnOff();
-    carOff->setReceiver(car);
-    Button *carOffSwitch = new Button(carOff);
+    c = new TurnOn();
+    c->setReceiver(vehicle);
+    b = new Button(c);
+    cout << "Testing RC car" << endl;
+    cout << "\t";
+    b->press();
+    
+    c = new MoveForward();
+    cout << "Testing 20 meters distance." << endl;
+    c->setReceiver(vehicle);
+    b = new Button(c);
+    cout << "\t";
+    b->press();
 
-    Command *carForward = new MoveForward();
-    carForward->setReceiver(car);
-    Button *carForwardBtn = new Button(carForward);
+    c = new MoveBackward();
+    cout << "Made it 20 meters forward, not testing 20 meters reverse." << endl;
+    c->setReceiver(vehicle);
+    b = new Button(c);
+    cout << "\t";
+    b->press();
 
-    Command *carBackward = new MoveBackward();
-    carBackward->setReceiver(car);
-    Button *carBackwardBtn = new Button(carBackward);
+    c = new TurnOff();
+    cout << "RC car battery is dead." << endl;
+    c->setReceiver(vehicle);
+    b = new Button(c);
+    cout << "\t";
+    b->press();
 
-    Command *planeOn = new TurnOn();
-    planeOn->setReceiver(plane);
-    Button *planeOnSwitch = new Button(planeOn);
+    cout << endl;
 
-    Command *planeOff = new TurnOff();
-    planeOff->setReceiver(plane);
-    Button *planeOffSwitch = new Button(planeOff);
+    /* -------- Plane Commands and Buttons ---------- */
+    vehicle = new RemoteControlPlane();
 
-    Command *planeForward = new MoveForward();
-    planeForward->setReceiver(plane);
-    Button *planeForwardBtn = new Button(planeForward);
+    c = new TurnOn();
+    c->setReceiver(vehicle);
+    b = new Button(c);
+    cout << "Testing RC plane" << endl;
+    cout << "\t";
+    b->press();
+    
+    c = new MoveForward();
+    cout << "Testing 20 meters up." << endl;
+    c->setReceiver(vehicle);
+    b = new Button(c);
+    cout << "\t";
+    b->press();
 
-    Command *planeBackward = new MoveBackward();
-    planeBackward->setReceiver(plane);
-    Button *planeBackwardBtn = new Button(planeBackward);
+    c = new MoveBackward();
+    cout << "Made it 20 meters up, now to bring it down." << endl;
+    c->setReceiver(vehicle);
+    b = new Button(c);
+    cout << "\t";
+    b->press();
 
+    c = new TurnOff();
+    cout << "RC plane made it back safely." << endl;
+    c->setReceiver(vehicle);
+    b = new Button(c);
+    cout << "\t";
+    b->press();
+
+    cout << endl;
+    
+    /* -------- Rocket Adapter Here ---------- */
+    RemoteControlRocket* rocket = new RemoteControlRocket();
     RocketAdapter *rocketAdapter = new RocketAdapter(rocket);
 
-    Command *rocketOn = new TurnOn();
-    rocketOn->setReceiver(rocketAdapter);
-    Button *rocketOnSwitch = new Button(rocketOn);
+    c = new TurnOn();
+    c->setReceiver(rocketAdapter);
+    b = new Button(c);
+    cout << "Testing RC rocket" << endl;
+    cout << "Taking off in: 3...2...1. Lift Off!" << endl;
+    cout << "\t";
+    b->press();
 
-    Command *rocketOff = new TurnOff();
-    rocketOff->setReceiver(rocketAdapter);
-    Button *rocketOffSwitch = new Button(rocketOff);
+    c = new MoveForward();
+    c->setReceiver(rocketAdapter);
+    b = new Button(c);
+    cout << "Trying out its maximum acceleration" << endl;
+    cout << "\t";
+    b->press();
 
-    Command *rocketForward = new MoveForward();
-    rocketForward->setReceiver(rocketAdapter);
-    Button *rocketForwardBtn = new Button(rocketForward);
+    c = new MoveBackward();
+    c->setReceiver(rocketAdapter);
+    b = new Button(c);
+    cout << "Rocket went super high super quickly. Time to bring it down." << endl;
+    cout << "\t";
+    b->press();
 
-    Command *rocketBackward = new MoveBackward();
-    rocketBackward->setReceiver(rocketAdapter);
-    Button *rocketBackwardBtn = new Button(rocketBackward);
-
-    cout << "Now going to start my RC Car!" << endl;
-    carOnSwitch->press();
-    cout << "I will now move the car forward until I can't see it anymore!" << endl;
-    carForwardBtn->press();
-    cout << "The car is out of sight, I will now drive it backwards so I can see it again!" << endl;
-    carBackwardBtn->press();
-    cout << "I am now tired of playing with the car, time to play with another toy..." << endl;
-    carOffSwitch->press();
-
-    cout << "Now going to start my RC Plane!" << endl;
-    planeOnSwitch->press();
-    cout << "Let's see how high this bird can fly!" << endl;
-    planeForwardBtn->press();
-    cout << "Woah slow down buddy, come a little closer." << endl;
-    planeBackwardBtn->press();
-    cout << "After hitting someone in the head, I think it will be better if I go home..." << endl;
-    planeOffSwitch->press();
-
-    cout << "Jokes! You thought I was leaving, I just fetched my rocket!" << endl;
-    cout << "3...2...1... Blast off!" << endl;
-    rocketOnSwitch->press();
-    cout << "Time to speed up!" << endl;
-    rocketForwardBtn->press();
-    cout << "TIme to slow down a bit." << endl;
-    rocketBackwardBtn->press();
-    cout << "Coming down for landing." << endl;
-    rocketOffSwitch->press();
-
+    c = new TurnOff();
+    cout << "Rocket must slowly come down so it won't crash." << endl;
+    c->setReceiver(rocketAdapter);
+    b = new Button(c);
+    cout << "\t";
+    b->press();
+    cout << "Rocket landed safely." << endl;
+    
     return 0;
 }
