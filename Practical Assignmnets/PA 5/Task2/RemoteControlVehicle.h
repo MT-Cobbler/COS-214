@@ -1,5 +1,5 @@
-#ifndef RemoteControlVehicle_H
-#define RemoteControlVehicle_H
+#ifndef REMOTECONTROLVEHICLE_H
+#define REMOTECONTROLVEHICLE_H
 class RemoteControlVehicle
 {
     public:

@@ -2,7 +2,6 @@
 #define REMOTECONTROLCAR_H
 
 #include <iostream>
-
 #include "RemoteControlVehicle.h"
 
 using namespace std;
