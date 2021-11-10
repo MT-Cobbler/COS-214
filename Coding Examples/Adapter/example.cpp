@@ -46,7 +46,6 @@ class Client{
 int main(){
     Target* newT = new Adaptor(new Adaptee());
     Client* c = new Client(newT);
-    cout << "Here" << endl;
     cout << c->getString() << endl;
     return 0;
 }
