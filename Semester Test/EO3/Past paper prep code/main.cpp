@@ -1,20 +1,20 @@
 #include <iostream>
-
+#include <map>
 using namespace std;
 
 class Conversion
 {
 private:
-    int digit;
-    string multiplier;
+    // use map structure
+    map<int, string>lookUp;
 public:
-    Conversion();
-    string get(int){
-        return multiplier;
+    string get(int k){
+        // use int to access key
+        return lookUp[k];
     }
     void set(int d, string m){
-        digit = d;
-        multiplier = m;
+        // store the character
+        lookUp[d] = m;
     }
 };
 

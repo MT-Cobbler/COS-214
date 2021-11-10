@@ -28,7 +28,7 @@ public:
  * Each Concrete Component must implement the `Accept` method in such a way that
  * it calls the visitor's method corresponding to the component's class.
  */
-// Concrete Element
+// Concrete Element 
 class ConcreteComponentA : public Component
 {
     /**
