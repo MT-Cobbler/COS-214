@@ -30,6 +30,7 @@ public:
         }
         else
         { // next in chain must handle the request
+        cout << "Sending to next in chain" << endl;
             this->next->handleRequest(s);
         }
     }
@@ -55,6 +56,7 @@ public:
         }
         else
         {
+            cout << "Sending to next in chain" << endl;
             this->next->handleRequest(r);
         }
     }
@@ -79,6 +81,7 @@ public:
         }
         else
         {
+            cout << "Sending to next in chain" << endl;
             this->next->handleRequest(r);
         }
     }

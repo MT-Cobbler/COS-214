@@ -4,15 +4,16 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    SoccerPlayer* newS = new SoccerPlayer();
+int main()
+{
+    SoccerPlayer *newS = new SoccerPlayer();
     cout << "Player, " << newS->getName() << " joined the field! " << endl;
     newS->commitFoul(); // no card
     newS->commitFoul(); // yellow card
     newS->commitFoul(); // red card
 
     newS = new SoccerPlayer("Adam");
-     cout << "Player, " << newS->getName() << " joined the field! " << endl;
+    cout << "Player, " << newS->getName() << " joined the field! " << endl;
     newS->commitFoul(); // no card
     newS->commitFoul(); // yellow card
     newS->commitFoul(); // red card
