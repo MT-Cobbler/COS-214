@@ -6,7 +6,7 @@
 #include <iostream>
 
 using namespace std;
-
+// Adapter
 class RocketAdapter : public RemoteControlVehicle
 {
 private:

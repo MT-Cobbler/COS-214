@@ -70,6 +70,14 @@ class ConcretePrototype2 : public Prototype
 /* Factory that manages prorotype instances and produces their clones. */
 class ObjectFactory
 {
+    /*
+        EngineFacotory** engineF = new EngineFacotyr*[2];
+        emgineF[0] = new MerlinFactory();
+        emgineF[1] = new MerlinVacuumFactory();
+        EnginePrototypeOne = engineF[0]->createEngine(); 
+        EnginePrototypeTwo = engineF[1]->createEngine();
+        
+    */
     static Prototype* type1value1;
     static Prototype* type1value2;
     static Prototype* type2value1;

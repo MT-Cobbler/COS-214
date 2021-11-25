@@ -90,8 +90,8 @@ int main()
     cout << endl;
     
     /* -------- Rocket Adapter Here ---------- */
-    RemoteControlRocket* rocket = new RemoteControlRocket();
-    RocketAdapter *rocketAdapter = new RocketAdapter(rocket);
+    RemoteControlRocket* rocket = new RemoteControlRocket(); // adpatee
+    RocketAdapter *rocketAdapter = new RocketAdapter(rocket); // adapter
 
     c = new TurnOn();
     c->setReceiver(rocketAdapter);

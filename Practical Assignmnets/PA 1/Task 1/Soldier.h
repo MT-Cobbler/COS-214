@@ -20,10 +20,10 @@ public:
     // template method
     virtual bool hitZombie(Zombie* z) = 0;
     virtual void celebrate() = 0;
-    virtual bool getHit(Zombie* z) = 0;
     virtual void die() = 0;
     virtual string getName() = 0;
     virtual int getHealth() = 0;
+    virtual bool getHit(Zombie* z) = 0;
     virtual string getPrimaryW() = 0;
     virtual string getSecondaryW() = 0;
 };

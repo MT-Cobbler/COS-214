@@ -6,7 +6,7 @@
 #include <iostream>
 
 using namespace std;
-
+// adpatee
 class RemoteControlRocket
 {
 public:

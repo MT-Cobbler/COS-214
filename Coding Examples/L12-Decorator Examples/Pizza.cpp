@@ -5,10 +5,10 @@
 //  Created by Linda Marshall on 2017/08/20.
 //
 //
-#import <iostream>
+#include <iostream>
 
 using namespace std;
-
+// Component = Rocket
 class Pizza {
 public:
     Pizza() {
@@ -26,7 +26,7 @@ public:
 private:
     double cost;
 };
-
+// 
 class PizzaBase : public Pizza {
 public:
     PizzaBase() {};
@@ -36,7 +36,7 @@ public:
     };
     ~PizzaBase() {};
 };
-
+// Different Rockets
 class ThinPizzaBase : public PizzaBase {
 public:
     ThinPizzaBase() {
@@ -45,7 +45,7 @@ public:
     };
 
 };
-
+// Different Rockets
 class ThickPizzaBase : public PizzaBase {
 public:
     ThickPizzaBase() {
@@ -53,7 +53,7 @@ public:
         setCost(25.00);
     };
 };
-
+// Decorator
 class PizzaTopping : public Pizza {
 public:
     PizzaTopping() {
@@ -81,7 +81,7 @@ protected:
 private:
     Pizza* topping;
 };
-
+// ConcreteDecorators
 class TomatoTopping : public PizzaTopping {
 public:
     TomatoTopping() : PizzaTopping() {
@@ -90,7 +90,7 @@ public:
     };
     ~TomatoTopping() {};
 };
-
+// ConcreteDecorators
 class MozerallaTopping : public PizzaTopping {
 public:
     MozerallaTopping() : PizzaTopping() {
@@ -99,7 +99,7 @@ public:
     };
     ~MozerallaTopping() {};
 };
-
+// ConcreteDecorators
 class HamTopping : public PizzaTopping {
 public:
     HamTopping() : PizzaTopping() {
