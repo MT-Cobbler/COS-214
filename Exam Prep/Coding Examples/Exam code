@@ -1,0 +1,86 @@
+class G {
+	public:
+		G();
+		int function1(int i);
+		int function2(int i, int j);
+		
+	private:
+		int* data;
+};
+
+
+
+class J  {
+	public:
+		J(char* s);
+	private:
+		char* a;	
+};
+
+class H {
+	public:
+		virtual int function(G* g) = 0;
+};
+
+class A : public H {
+	public:
+		A(char* c);
+		virtual A* something() = 0;
+		virtual J* g();
+		virtual void f(J* j);
+		
+	protected:
+		char* c;
+};
+
+class I : public H {
+	public:
+		I(char* c);
+		virtual int function(G* g);
+		
+	private:
+		A* a;
+};
+
+class B : public A {
+	public:
+		B(char* c);
+		virtual B* something();
+		virtual int function(G* g);
+};
+
+class C : public A {
+	public:
+		C(char* c, A* one = 0, A* two = 0, A* three = 0);
+		virtual C* something();
+		virtual int function(G* g);
+			
+	private:
+		A* a1;
+		A* a2;
+		A* a3;
+};
+
+class K {
+	public:
+		virtual void f(J* j);
+		virtual J* g();
+			
+	private:
+		J* j;
+};
+
+class D {
+	public:
+		virtual A* f(char* c) = 0;	
+};
+
+class E : public D {
+	public:
+		virtual B* f(char* c);
+};
+
+class F : public D {
+	public:
+		virtual C* f(char* c);
+};
